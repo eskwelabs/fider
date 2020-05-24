@@ -10,6 +10,7 @@ import { VotesModal } from "./VotesModal";
 interface VotesPanelProps {
   post: Post;
   votes: Vote[];
+  hidden?: boolean
 }
 
 export const VotesPanel = (props: VotesPanelProps) => {
@@ -30,6 +31,10 @@ export const VotesPanel = (props: VotesPanelProps) => {
     "l-votes-more": true,
     clickable: canShowAll()
   });
+
+  if(props.hidden) {
+    return <small />;
+  }
 
   return (
     <>

@@ -112,8 +112,8 @@ export default class ShowPostPage extends React.Component<ShowPostPageProps, Sho
                 )}
 
                 <span className="info">
-                  <Moment date={this.props.post.createdAt} /> &middot; <Avatar user={this.props.post.user} />{" "}
-                  <UserName user={this.props.post.user} />
+                  <Moment date={this.props.post.createdAt} /> &middot; <Avatar hidden={true} user={this.props.post.user} />{" "}
+                  <UserName user={this.props.post.user} hidden={true} />
                 </span>
               </div>
             </ListItem>
@@ -143,7 +143,7 @@ export default class ShowPostPage extends React.Component<ShowPostPageProps, Sho
         </div>
 
         <div className="action-col">
-          <VotesPanel post={this.props.post} votes={this.props.votes} />
+          <VotesPanel hidden={true} post={this.props.post} votes={this.props.votes} />
 
           {Fider.session.isAuthenticated &&
             Fider.session.user.isCollaborator && [

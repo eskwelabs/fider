@@ -10,6 +10,7 @@ interface UserNameProps {
     name: string;
     role?: UserRole;
   };
+  hidden?: boolean;
 }
 
 export const UserName = (props: UserNameProps) => {
@@ -17,6 +18,11 @@ export const UserName = (props: UserNameProps) => {
     "c-username": true,
     "m-staff": props.user.role && isCollaborator(props.user.role)
   });
+
+  if(props.hidden) {
+    return <small />;
+  }
+
 
   return <span className={className}>{props.user.name || "Anonymous"}</span>;
 };

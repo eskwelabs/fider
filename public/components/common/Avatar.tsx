@@ -10,6 +10,7 @@ interface AvatarProps {
     avatarURL: string;
     name: string;
   };
+  hidden?: boolean;
   size?: "small" | "normal" | "large";
 }
 
@@ -21,6 +22,10 @@ export const Avatar = (props: AvatarProps) => {
     [`m-${size}`]: true,
     "m-staff": props.user.role && isCollaborator(props.user.role)
   });
+
+  if(props.hidden) {
+    return <small />;
+  }
 
   return <img className={className} title={props.user.name} src={`${props.user.avatarURL}?size=50`} />;
 };
